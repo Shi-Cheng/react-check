@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { PureComponent } from 'react'
+import {Switch, Route, withRouter} from 'react-router-dom'
+import AuthRouter from './component/AuthRouter'
+import SystemLayout from './component/layout'
+import Login from './pages/login'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends PureComponent{
+  render(){
+    return (
+      <Switch>
+        <Route path='/login' exact component={Login}></Route>
+        <AuthRouter path='/' component={SystemLayout}></AuthRouter>
+      </Switch>
+    )
+  }
 }
 
-export default App;
+export default withRouter(App);

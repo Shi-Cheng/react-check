@@ -1,0 +1,20 @@
+.security-content{
+  padding-top: 5%;
+}
+.security-info{
+  padding-top: 20px;
+}
+
+.help{
+  padding: 13px;
+  margin-left: 100px;
+}
+
+.legend{
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  border-bottom: 2px solid #e5e5e5;
+}
