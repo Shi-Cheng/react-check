@@ -11,13 +11,15 @@ const SystemContent = () => {
   return (
     <Fragment>
       <Content style={{ padding: '15px', minHeight: 'calc(100vh - 130px)', background: '#fff' }}>
-        <Switch>
-          {
-            tabs.map(tab => <Route render={() => <tab.component />} key={tab.path} path={tab.path}></Route>)
-          }
-          <Redirect from="/" exact to="/hash" />
-          <Redirect to="/error/404" />
-        </Switch>
+ 
+          <Switch>
+            {
+              tabs.map(tab => <Route render={() => <tab.component />} key={tab.path} path={tab.path}></Route>)
+            }
+            <Redirect from="/" exact to="/hash" />
+            <Redirect to="/error/404" />
+          </Switch>
+      
       </Content>
     </Fragment>
   )

@@ -12,13 +12,12 @@ class Login extends Component {
     super(props)
   }
   handleLogin = data => {
-    // console.log(data)
     this.props.handleLoginDispatch(data)
-    this.props.history.push('/')
+    localStorage.setItem('isLogin', 'login')
     // return
-    // setTimeout(() => {
-    //   this.props.history.push('/')
-    // }, 500)
+    setTimeout(() => {
+      this.props.history.push('/')
+    }, 500)
   }
   render() {
     const { clickStatus } = this.props
