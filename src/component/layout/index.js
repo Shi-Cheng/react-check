@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Layout } from 'antd'
 import SystemHeader from './component/Header'
-import SystemSlider from './component/Slider'
 import SystemContent from './component/Content'
-import { actionCreators } from './store'
-import './style.css'
+import './style.less'
 const { Header, Content, Footer } = Layout;
-
 
 class SystemLayout extends Component {
   render() {

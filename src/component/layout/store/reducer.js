@@ -4,7 +4,7 @@ import { getPath } from '../../utils/auth'
 
 const defaultState = fromJS({
   panes: [],
-  selectedKeys:  getPath('path')? getPath('path') : 'home'
+  selectedKeys:  getPath('path')? getPath('path') : 'hash'
 })
 
 export default (state = defaultState, actions) => {

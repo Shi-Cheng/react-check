@@ -18,3 +18,7 @@
   line-height: inherit;
   border-bottom: 2px solid #e5e5e5;
 }
+
+.ant-upload-list{
+  width: 400px;
+}

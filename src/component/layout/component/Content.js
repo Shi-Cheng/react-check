@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-// import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Layout } from 'antd'
 import { tabs } from '../../../router'
 import { connect } from 'react-redux'
@@ -16,7 +15,7 @@ const SystemContent = () => {
           {
             tabs.map(tab => <Route render={() => <tab.component />} key={tab.path} path={tab.path}></Route>)
           }
-          <Redirect from="/" exact to="/home" />
+          <Redirect from="/" exact to="/hash" />
           <Redirect to="/error/404" />
         </Switch>
       </Content>

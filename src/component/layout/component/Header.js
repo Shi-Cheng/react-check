@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { Menu } from 'antd'
 import { menu, tabs } from '../../../router'
-import MyIcon from '../../MyIcon'
 import { actionCreators } from '../store'
 import { setPath } from '../../utils/auth'
 
@@ -15,9 +14,7 @@ class Header extends Component {
         if (!item.children || !item.children.length) {
           return (
             <Menu.Item key={item.key}>
-              {/* <div onClick={() => { this.addPane(item, panes, activeMenu) }}> <MyIcon type={item.icon} /><span>{item.name}</span></div> */}
               <Link to={item.path} onClick={() => this.addPane(item)}>
-                {item.icon ? <MyIcon type={item.icon} /> : ''}
                 <span>{item.name}</span>
               </Link>
             </Menu.Item>
@@ -26,7 +23,8 @@ class Header extends Component {
           return (
             <Menu.SubMenu key={item.path} title={
               <span>
-                {item.icon && <MyIcon type={item.icon} />}<span>{item.name}</span>
+                {/* {item.icon && <MyIcon type={item.icon} />} */}
+                <span>{item.name}</span>
               </span>
             }>
               {this.renderMenu(item.children)}
