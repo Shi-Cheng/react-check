@@ -37,18 +37,18 @@ class CheckSecurity extends Component {
       <Fragment>
         <div className='security-content'>
           <Form {...layout} ref={this.refForm} name="control-hooks" initialValues={initialValues} onFinish={this.onFinish}>
-            <Form.Item name="type" label="算法类型">
+            <Form.Item name="type" label="操作类型">
               <Select
                 size='large'
                 style={{ width: 400 }}
-                placeholder="算法类型"
+                placeholder="操作类型"
               >
                 <Option value="code">粘贴代码</Option>
                 {/* <Option value="file">上传文件</Option> */}
               </Select>
             </Form.Item>
             <Form.Item name="plain" label="数据原文" rules={[{ required: true }]}>
-              <Input.TextArea size='large' style={{ width: 400 }} />
+              <Input.TextArea size='large' style={{ width: 400 }} placeholder="数据原文"/>
             </Form.Item>
             {/* <Form.Item label="证书文件" name="dragger">
               <Upload.Dragger
@@ -66,6 +66,9 @@ class CheckSecurity extends Component {
             <Form.Item {...tailLayout}>
               <Button size='large' type="primary" htmlType="submit" style={{ marginRight: 7 }}>
                 验证
+              </Button>
+              <Button size='large' type="default" style={{ marginRight: 7 }}>
+                重置
               </Button>
             </Form.Item>
           </Form>
