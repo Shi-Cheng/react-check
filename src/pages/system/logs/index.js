@@ -2,9 +2,11 @@ import React, { Fragment, Component } from 'react'
 import { Card, Table } from 'antd'
 import { connect } from 'react-redux'
 import Search from '../../../component/Search'
+import Detail from '../../../component/Detail'
 import moment from 'moment'
 import { LogsSearchData, LogsBtnList } from '../../../component/Common/searchList'
 import { actionCreators } from '../store'
+import { logsDetail } from '../../../component/Common/detailList'
 
 class Logs extends Component {
   handleClick(type, searchParams) {
@@ -15,11 +17,17 @@ class Logs extends Component {
       this.props.setAddUserStatus(true)
     }
   }
+  changeDetailStatus(item) {
+    console.log(item)
+  }
   render() {
     const {
       query,
+      logsInfo,
+      detailVisibleStatus,
       handlePagination,
-      changeDetailStatus
+      changeDetailStatus,
+      onCancle
     } = this.props
     let logs = []
 
@@ -34,7 +42,7 @@ class Logs extends Component {
         "gender": 0
       },
       {
-        "id": 1,
+        "id": 2,
         "username": "张洁",
         "operationModel": "哈希散列",
         "loginAddress": "47.99.130.140",
@@ -43,7 +51,7 @@ class Logs extends Component {
         "gender": 0
       },
       {
-        "id": 1,
+        "id": 3,
         "username": "张洁",
         "operationModel": "SM4加密",
         "loginAddress": "47.99.130.140",
@@ -52,7 +60,7 @@ class Logs extends Component {
         "gender": 0
       },
       {
-        "id": 1,
+        "id": 4,
         "username": "张洁",
         "operationModel": "密钥合规性",
         "loginAddress": "47.99.130.140",
@@ -61,7 +69,7 @@ class Logs extends Component {
         "gender": 0
       },
       {
-        "id": 1,
+        "id": 5,
         "username": "张洁",
         "operationModel": "证书检测",
         "loginAddress": "47.99.130.140",
@@ -70,7 +78,7 @@ class Logs extends Component {
         "gender": 0
       },
       {
-        "id": 1,
+        "id": 6,
         "username": "张洁",
         "operationModel": "哈希/散列",
         "loginAddress": "47.99.130.140",
@@ -169,6 +177,13 @@ class Logs extends Component {
             />
           </Card>
         </Card>
+        <Detail
+          visiable={detailVisibleStatus}
+          detailList={logsDetail}
+          detailData={logsInfo}
+          handleCancle={onCancle}
+          handleClose={() => this.handleClose()}
+        />
       </Fragment>
     )
   }
@@ -177,7 +192,9 @@ class Logs extends Component {
 const MapState = (state) => {
   return {
     pagination: state.getIn(['system', 'pagination']),
-    query: state.getIn(['system', 'query'])
+    detailVisibleStatus: state.getIn(['system', 'detailVisibleStatus']),
+    query: state.getIn(['system', 'query']),
+    logsInfo: state.getIn(['system', 'logsInfo']),
   }
 }
 
@@ -189,7 +206,13 @@ const MapDispatch = (dispatch) => {
         pageSize: pageSize
       }
       dispatch(actionCreators.setChangePagination(query))
-    }
+    }, 
+    changeDetailStatus(item) {
+      dispatch(actionCreators.setLogsHandleDetail(item))
+    },
+    onCancle() {
+      dispatch(actionCreators.setSystemDetailStatus(false))
+    },
   }
 }
 

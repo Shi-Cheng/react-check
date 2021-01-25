@@ -5,6 +5,7 @@ const defaultState = fromJS({
   detailVisibleStatus: false,
   userAddVisibleStatus: false,
   userInfo: {},
+  logsInfo: {},
   // 定义查询参数
   query: {
     pageNumber: 1,
@@ -22,6 +23,11 @@ export default (state = defaultState, actions) => {
       return state.merge({
         detailVisibleStatus: actions.data.status,
         userInfo: actions.data.userInfo
+      })
+    case types.HANDLE_LOG_DETAIL:
+      return state.merge({
+        detailVisibleStatus: actions.data.status,
+        logsInfo: actions.data.logsInfo
       })
     case types.HANDLE_CHANGE_PAGINATION:
       return state.merge({

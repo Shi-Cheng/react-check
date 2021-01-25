@@ -45,6 +45,33 @@ const detailUser = {
   ]
 }
 
+const logsDetail = {
+  width: 800,
+  title: '日志详情',
+  list: [
+    {
+      name: 'username',
+      label: '用户名'
+    },
+    {
+      name: 'gender',
+      label: '性别'
+    },
+    {
+      name: 'loginAddress',
+      label: '登录地点'
+    },
+    {
+      name: 'operationModel',
+      label: '操作模块'
+    },
+    {
+      name: 'operationTime',
+      label: '操作时间'
+    }
+  ]
+}
 export {
-  detailUser
+  detailUser,
+  logsDetail
 }

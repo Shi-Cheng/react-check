@@ -53,8 +53,8 @@ class SmFourSecurity extends Component {
                 <Option value="sm4">SM4</Option>
               </Select>
             </Form.Item>
-            <Form.Item name="plain" label="待加密文本" rules={[{ required: true }]}>
-              <Input.TextArea size='large' placeholder="待加密文本" style={{ width: 400 }} />
+            <Form.Item name="plain" label="待加密/解密文本" rules={[{ required: true }]}>
+              <Input.TextArea size='large' placeholder="待加密/解密文本" style={{ width: 400 }} />
             </Form.Item>
             <Form.Item name="model" label="迭代模式">
               <Select
@@ -85,6 +85,9 @@ class SmFourSecurity extends Component {
             <Form.Item {...tailLayout}>
               <Button size='large' type="primary" htmlType="submit" style={{ marginRight: 7 }}>
                 加密
+              </Button>
+              <Button size='large' type="primary" htmlType="submit" style={{ marginRight: 7 }}>
+                解密
               </Button>
               <Button size='large' htmlType="button" onClick={this.onReset}>
                 重置

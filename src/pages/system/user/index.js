@@ -23,6 +23,9 @@ class User extends PureComponent {
       this.props.setAddUserStatus(true)
     }
   }
+  changeDetailStatus (item) {
+    console.log(item)
+  }
   render() {
     const {
       detailVisibleStatus,

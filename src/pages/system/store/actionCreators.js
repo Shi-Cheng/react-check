@@ -21,6 +21,22 @@ const selectDetail = (data) => {
   }
 }
 
+
+const selectLogsDetail = (item) => {
+  const logsInfo = {
+    avatar: item.avatar,
+    gender: item.gender,
+    id: item.id,
+    loginAddress: item.loginAddress,
+    operationModel: item.operationModel,
+    operationTime: item.operationTime,
+    username: item.username,
+  }
+  return {
+    logsInfo: logsInfo,
+    status: true
+  }
+}
 export const setSystemDetailStatus = (status) => {
   return {
     type: types.SYSTEM_DETAIL_STATUS,
@@ -42,6 +58,15 @@ export const setHandleDetail = (value) => {
     data
   }
 }
+
+export const setLogsHandleDetail = (value) => {
+  const data = selectLogsDetail(value)
+  return {
+    type: types.HANDLE_LOG_DETAIL,
+    data
+  }
+}
+
 
 export const setChangePagination = (data) => {
   return {
